@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<project name="as3c" default="install">
+  <property file="build.properties"/>
+  <target name="init">
+    <mkdir dir="build"/>
+  </target>
+  <target name="compile" depends="init">
+    <javac srcdir="src"
+           destdir="build"
+           includes="**/*.java"
+           classpath="${FLEX_COMPILER_OEM}"/>
+  </target>
+  <target name="package" depends="compile">
+    <jar destfile="as3c.jar" basedir="build"/>
+  </target>
+  <target name="install" depends="package">
+    <mkdir dir="${DIST_DIR}/lib"/>
+    <mkdir dir="${DIST_DIR}/bin"/>
+    <copy file="as3c.jar" todir="${DIST_DIR}/lib"/>
+    <copy file="src/3c.template" tofile="${DIST_DIR}/bin/3c">
+      <filterset>
+        <filter token="FLEX_COMPILER_OEM" value="${FLEX_COMPILER_OEM}"/>
+      </filterset>
+    </copy>
+    <chmod file="${DIST_DIR}/bin/3c" perm="755"/>
+  </target>
+  <target name="uninstall">
+    <delete file="${DIST_DIR}/lib/as3c.jar"/>
+    <delete file="${DIST_DIR}/bin/3c"/>
+  </target>
+  <target name="clean">
+    <delete dir="build"/>
+    <delete file="as3c.jar"/>
+  </target>
+</project>

@@ -1,0 +1,4 @@
+#!/bin/sh
+CP=@FLEX_COMPILER_OEM@:`dirname $0`/../lib/as3c.jar
+
+java -Dfile.encoding=UTF8 -Xmx512m -cp $CP com.github.amakabe.as3c.AS3C $@

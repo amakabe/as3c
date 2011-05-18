@@ -29,9 +29,9 @@ public class AS3C
       File logFile = null;
       for (int i=0; i<numArgs - 1; i+=2) {
         String arg = args[i];
-        if (arg == "-l")
+        if (arg.equals("-l"))
           logFile = new File(args[i + 1]);
-        if (arg == "-o")
+        if (arg.equals("-o"))
           outFile = new File(args[i + 1]);
         else
           usage();

@@ -8,10 +8,9 @@ as3c
 
 Flexコンパイラのラッパです。
 
-FlexSDKに含まれる`flex-compiler-oem.jar`を使用して
 コンパイル対象ファイル(と依存ファイル)の変更を監視し
+FlexSDKに含まれる`flex-compiler-oem.jar`を使用して
 自動でコンパイルします。
-
 
 
 依存
@@ -31,7 +30,7 @@ as3cをビルド/実行するためには Java, Ant, Flex SDKが必要です。
 
 ソースをダウンロードします。
 
-    $ git clone git://github.com/amakabe/as3c
+    $ git clone git://github.com/amakabe/as3c.jar
 
 `build.properties`を編集し依存ライブラリとインストール先のパスを設定します。
 
@@ -67,7 +66,6 @@ as3cをビルド/実行するためには Java, Ant, Flex SDKが必要です。
   フラッシュプレーヤのログファイル`flashlog.txt`のパスを指定することで
   コンパイラの出力と`flashlog.txt`への追記をマージして
   端末に表示することができます。
-
 
 
 作者と連絡先
